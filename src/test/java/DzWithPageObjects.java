@@ -2,21 +2,22 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import pages.RegistrationsPage;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class Dz {
+public class DzWithPageObjects {
     @BeforeAll
     static void beforeAll() {
         Configuration.startMaximized = true;
     }
     @Test
     void dz() {
-             open("https://demoqa.com/automation-practice-form");
-        $("#firstName").setValue("Johny");
-        $("#lastName").setValue("Depp");
+        RegistrationsPage.openPage();
+       RegistrationsPage.typeFirstName("Johny");
+       RegistrationsPage.typeLastName("Depp");
         $("#userEmail").setValue("johny@depp.com");
         $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("2222222222222");
