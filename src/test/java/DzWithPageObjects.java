@@ -1,36 +1,27 @@
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pages.RegistrationsPage;
+
+import java.io.File;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
-public class DzWithPageObjects {
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.startMaximized = true;
-    }
+public class DzWithPageObjects extends TestBase {
+
     @Test
     void dz() {
-        RegistrationsPage.openPage();
-       RegistrationsPage.typeFirstName("Johny");
-       RegistrationsPage.typeLastName("Depp");
-        $("#userEmail").setValue("johny@depp.com");
-        $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").setValue("2222222222222");
+        registrationsPage.openPage();
+        registrationsPage.typeFirstName("Johny")
+                        .typeLastName("Depp")
+                        .typeEmail("johny@Depp.com")
+                        .chooseGender("Male")
+                        .phoneinput("0000000000")
+                        .birthInput("12", "May", "2010")
+                        .hobbiesCheckbox("Reading", "Sports")
+                        .subjectsInput("science");
 
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("May");
-        $(".react-datepicker__year-select").selectOption("2010");
 
-        $(".react-datepicker__day--030:not(.react-datepicker__day--outside-month)").click();
 
-        $("#hobbiesWrapper").$(byText("Reading")).click();
-        $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#subjectsInput").setValue("science").pressEnter();
         $("#uploadPicture").uploadFile(new File("src/test/resources/img/peterthegreat.png"));
         $("#currentAddress").setValue("Main street");
 
