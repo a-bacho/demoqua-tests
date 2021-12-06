@@ -1,6 +1,9 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.conditions.Value;
+
+import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -19,7 +22,11 @@ public class RegistrationsPage {
             phoneInput = $("#userNumber"),
             birthInput = $("#dateOfBirthInput"),
             hobbiesCheckbox = $("#hobbiesWrapper"),
-            subjectsInput = $("#subjectsInput");
+            subjectsInput = $("#subjectsInput"),
+            pictureUpload = $("#uploadPicture"),
+            addressInput =  $("#currentAddress"),
+            stateSelect = $("#stateCity-wrapper");
+
 
     //actions
     public static void openPage() {
@@ -72,4 +79,22 @@ public class RegistrationsPage {
         subjectsInput.setValue(value).pressEnter();
         return this;
     }
+    public RegistrationsPage pictureUpload() {
+        pictureUpload.scrollIntoView(true);
+        pictureUpload.uploadFile(new File("src/test/resources/img/peterthegreat.png"));
+        return this;
+    }
+    public RegistrationsPage typeAddress(String value) {
+        addressInput.setValue(value);
+        return this;
+    }
+    public RegistrationsPage stateSelect(String value1, String value2) {
+        $("#state").click();
+        stateSelect.$(byText(value1)).click();
+        $("#city").click();
+        stateSelect.$(byText(value2)).scrollTo().click();
+        return this;
+    }
+
+
 }
