@@ -12,24 +12,30 @@ public class DzWithPageObjects extends TestBase {
     void dz() {
         registrationsPage.openPage();
         registrationsPage.typeFirstName("Johny")
-                        .typeLastName("Depp")
-                        .typeEmail("johny@Depp.com")
-                        .chooseGender("Male")
-                        .phoneinput("0000000000")
-                        .birthInput("12", "May", "2010")
-                        .hobbiesCheckbox("Reading", "Sports")
-                        .subjectsInput("science");
+                         .typeLastName("Depp")
+                         .typeEmail("johny@Depp.com")
+                         .chooseGender("Male")
+                         .phoneinput("0000000000")
+                         .birthInput("12", "May", "2010")
+                         .hobbiesCheckbox("Reading", "Sports")
+                         .subjectsInput("science")
+                         .pictureUpload()
+                         .typeAddress("Main street")
+                         .stateSelect("NCR","Noida");
 
 
 
-        $("#uploadPicture").uploadFile(new File("src/test/resources/img/peterthegreat.png"));
-        $("#currentAddress").setValue("Main street");
 
-        $("#state").click();
 
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Noida")).scrollTo().click();
+       // $("#uploadPicture").scrollIntoView(true);
+       // $("#uploadPicture").uploadFile(new File("src/test/resources/img/peterthegreat.png"));
+      //  $("#currentAddress").setValue("Main street");
+
+       // $("#state").click();
+
+     //   $("#stateCity-wrapper").$(byText("NCR")).click();
+     //   $("#city").click();
+        //$("#stateCity-wrapper").$(byText("Noida")).scrollTo().click();
         $("#submit").click();
 
         $("#example-modal-sizes-title-lg").shouldHave(Condition.text("Thanks for submitting the form"));
