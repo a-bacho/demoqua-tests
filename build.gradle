@@ -7,11 +7,12 @@ repositories {
 }
 
 dependencies {
+    testImplementation 'com.github.javafaker:javafaker:0.12'
     testImplementation(
-            "org.junit.jupiter:junit-jupiter-api:5.8.1",
+            "org.junit.jupiter:junit-jupiter-api:5.8.1"
+            ,
             "com.codeborne:selenide:5.25.0")
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.1"
-
 }
 
 test {
