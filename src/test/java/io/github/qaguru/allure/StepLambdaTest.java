@@ -11,7 +11,7 @@ import static org.openqa.selenium.By.linkText;
 import static org.openqa.selenium.By.partialLinkText;
 
 public class StepLambdaTest {
-  public final String REPOSITORY = "eroshenkoam/allure-example";
+  public final String REPOSITORY = "eroshenkoam/allure-examaple";
 
     @Test
 
@@ -32,7 +32,7 @@ public class StepLambdaTest {
 
                     $(linkText("eroshenkoam/allure-example")).click();
                 });
-        step("Открываем таб issues");
+      //  step("Открываем таб issues");
         $(partialLinkText("Issues")).click();
         $(withText("#68")).should(Condition.visible);
 
