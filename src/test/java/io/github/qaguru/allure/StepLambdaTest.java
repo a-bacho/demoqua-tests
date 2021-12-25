@@ -26,7 +26,7 @@ public class StepLambdaTest {
 
                     $(".header-search-input").click();
                     $(".header-search-input").sendKeys("eroshenkoam/allure-example");
-                    $(".header-search-input").submit();
+             //       $(".header-search-input").submit();
                 });
         step("Переходим в репозиторий" + REPOSITORY, () -> {
 
