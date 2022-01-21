@@ -1,18 +1,28 @@
 package io.github.qaguru.allure.Steps;
 
-import com.sun.jmx.mbeanserver.Repository;
+import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.openqa.selenium.By.linkText;
+import static org.openqa.selenium.By.partialLinkText;
+
+
 
 public class WebSteps {
-  @Step ("Открываем главную страницу")
-    public void openMainpage() {
+
+    public final String REPOSITORY = "eroshenkoam/allure-examaple";
+    private static final int NUMBER = 68;
+
+    
+
+  @Step ("Open main page")
+    public void openMainPage() {
       open("https://github.com");
     }
-@Step ("Ищем репозиторий {repositoy}")
+@Step ("looking for {repositoy}")
 
     public void searchForRepository(String repository) {
 
@@ -25,20 +35,24 @@ public class WebSteps {
 
 }
 
-@Step ("Переходим в репозиторий {repositoy}")
+@Step ("open repository {repository}")
+
 public void goToRepository(String repository) {
     $(linkText("eroshenkoam/allure-example")).click();
 }
 
-@Step ("Открываем таб issues")
-    //public void open IssueTab(){
 
+    @Step("open tab Issues")
+    public void openIssuesTab() { {
+        $(partialLinkText("Issues")).click();
+        $(partialLinkText("Issues")).click();
+    }
 
 
     }
-@Step ()
-    public void shouldSeeIssueWithNumber() {
-
+@Step ("Checking  Issue with {number}")
+    public void shouldSeeIssueWithNumber(int number) {
+    $(withText("#"+number)).should(Condition.visible);
 
     }
 

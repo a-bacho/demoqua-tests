@@ -20,7 +20,7 @@ public class SelenideTest {
         System.setProperty("selenide.browser", "firefox");
         open("https://github.com");
        $(".header-search-input").click();
-        $(".header-search-input").sendKeys("eroshenkoam/allure-examp2le");
+        $(".header-search-input").sendKeys("eroshenkoam/allure-example");
         $(".header-search-input").submit();
         $(linkText("eroshenkoam/allure-example")).click();
 $(partialLinkText("Issues")).click();
