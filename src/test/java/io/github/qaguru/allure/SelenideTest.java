@@ -14,32 +14,14 @@ import static org.openqa.selenium.By.partialLinkText;
 public class SelenideTest {
 
     @Test
-
-    public void testGithub(){
+    public void testGithub() {
         SelenideLogger.addListener("allure", new AllureSelenide());
-        System.setProperty("selenide.browser", "firefox");
         open("https://github.com");
-       $(".header-search-input").click();
+        $(".header-search-input").click();
         $(".header-search-input").sendKeys("eroshenkoam/allure-example");
         $(".header-search-input").submit();
         $(linkText("eroshenkoam/allure-example")).click();
-$(partialLinkText("Issues")).click();
-$(withText("#68")).should(Condition.visible);
-
-
-
-
+        $(partialLinkText("Issues")).click();
+        $(withText("#68")).should(Condition.visible);
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }

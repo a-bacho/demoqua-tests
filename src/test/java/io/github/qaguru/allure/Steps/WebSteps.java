@@ -10,52 +10,40 @@ import static org.openqa.selenium.By.linkText;
 import static org.openqa.selenium.By.partialLinkText;
 
 
-
 public class WebSteps {
 
     public final String REPOSITORY = "eroshenkoam/allure-examaple";
     private static final int NUMBER = 68;
-
     
-
-  @Step ("Open main page")
+    @Step("Open main page")
     public void openMainPage() {
-      open("https://github.com");
+        open("https://github.com");
     }
-@Step ("looking for {repositoy}")
 
+    @Step("looking for {repositoy}")
     public void searchForRepository(String repository) {
 
-    $(".header-search-input").click();
-    $(".header-search-input").sendKeys(repository);
-    $(".header-search-input").submit();
+        $(".header-search-input").click();
+        $(".header-search-input").sendKeys(repository);
+        $(".header-search-input").submit();
+    }
 
-
-
-
-}
-
-@Step ("open repository {repository}")
-
-public void goToRepository(String repository) {
-    $(linkText("eroshenkoam/allure-example")).click();
-}
+    @Step("open repository {repository}")
+    public void goToRepository(String repository) {
+        $(linkText("eroshenkoam/allure-example")).click();
+    }
 
 
     @Step("open tab Issues")
-    public void openIssuesTab() { {
-        $(partialLinkText("Issues")).click();
-        $(partialLinkText("Issues")).click();
+    public void openIssuesTab() {
+        {
+            $(partialLinkText("Issues")).click();
+            $(partialLinkText("Issues")).click();
+        }
     }
 
-
-    }
-@Step ("Checking  Issue with {number}")
+    @Step("Checking  Issue with {number}")
     public void shouldSeeIssueWithNumber(int number) {
-    $(withText("#"+number)).should(Condition.visible);
-
+        $(withText("#" + number)).should(Condition.visible);
     }
-
-
-
 }
