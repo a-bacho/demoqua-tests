@@ -17,18 +17,15 @@ public class ParameterizedWebTest {
 
     @MethodSource("commonSearchTestCsvSource")
     @ParameterizedTest
-    void commonSearchTest(String testData,String expected ) {
+    void commonSearchTest(String testData, String expected) {
         Selenide.open("https://www.baeldung.com/");
 
         Selenide.$("a[href='#search']").click();
         Selenide.$("#search").setValue(testData);
         Selenide.$("button[type='submit']").click();
 
-        Selenide.$("#main")
-
-                .shouldHave(Condition.text(expected));
+        Selenide.$("#main").shouldHave(Condition.text(expected));
     }
-
 
 
 }
