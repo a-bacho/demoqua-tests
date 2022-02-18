@@ -129,7 +129,7 @@ test {
 
 */
 
-plugins {
+/* plugins {
     id 'java'
 }
 
@@ -152,6 +152,30 @@ dependencies {
             'com.codeborne:pdf-test:1.7.0',
             'com.codeborne:xls-test:1.4.3',
             'com.opencsv:opencsv:5.5.2'
+    )
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+ */
+plugins {
+    id 'java'
+}
+
+group 'guru.qa'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation (
+            'org.junit.jupiter:junit-jupiter:5.8.2',
+            'com.codeborne:selenide:6.2.0'
     )
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
