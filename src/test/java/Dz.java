@@ -21,6 +21,7 @@ public class Dz {
         $("#lastName").setValue("Depp");
         $("#userEmail").setValue("johny@depp.com");
         $("#genterWrapper").$(byText("Male")).click();
+        $("#currentAddress").scrollIntoView(true);
         $("#userNumber").setValue("2222222222222");
 
         $("#dateOfBirthInput").click();
